@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Gemini Quiz Bot</title>
+</head>
+<body>
+    <h1>Gemini QuizBot</h1>
+    <form method="post" action="/chat">
+        <input type="text" name="message" style="width:300px;" autofocus required />
+        <button type="submit">Gửi</button>
+    </form>
+    <div>
+        {% for m in history %}
+            <p><b>{{ 'Bạn' if m.role == 'user' else 'Bot' }}:</b> {{ m.content }}</p>
+        {% endfor %}
+        {% if response %}
+            <p><b>Bot:</b> {{ response }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
